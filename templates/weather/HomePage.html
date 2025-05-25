@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'weather/homepage.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="MainContainer" >
+        <div class="WeatherContainer" >
+            <h1>Введите город</h1>
+            <form method="GET" class="formContainer" >
+                <input
+                    type="text"
+                    class="input"
+                    style="height: 50px"
+                    name="city"
+                    id="city-input"
+                    autocomplete="off"
+                    placeholder="Санкт-Петербург"
+                />
+                <button
+                        type="submit"
+                        class="btn btn-success"
+                >
+                    Показать погоду
+                </button>
+                <div id="suggestions"></div>
+            </form>
+        </div>
+        <div class="weather-container" >
+            {% if weather %}
+                <div class="weather-container">
+                    <h2>Погода в городе {{ city.name }}</h2>
+                
+                    <canvas id="temperatureChart" width="400" height="200"></canvas>
+                
+                    
+                </div>
+                
+                
+                {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'weather/fetch.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('temperatureChart').getContext('2d');
+    
+        const labels = [
+            {% for time, temp in weather %}
+                '{{ time|slice:"-5:" }}' {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        ];
+    
+        const data = [
+            {% for time, temp in weather %}
+                {{ temp }} {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        ];
+    
+        const temperatureChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Температура °C',
+                    data: data,
+                    fill: true,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    tension: 0.3,
+                    pointRadius: 3,
+                    pointHoverRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Время'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Температура (°C)'
+                        },
+                        suggestedMin: Math.min(...data) - 5,
+                        suggestedMax: Math.max(...data) + 5,
+                    }
+                }
+            }
+        });
+    </script>
+{% endblock %}

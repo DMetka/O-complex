@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --main-color: #000;
+    --main2-color: #0E0E0E;
+    --extra-color: #1C1C1C;
+    --extra2-color: #757575;
+    --extra3-color: #C1C1C1;
+    --header-background: #161616;
+    --input-background: #1c1c1c;
+    --input-placeholder: #757575;
+    --active-color: #7546FC;
+    --text-color: #fff;
+    --font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--main-color);
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 150%;
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 150%;
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 118%;
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 178%;
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 200%;
+    color: var(--text-color);
+    font-family: var(--font-family);
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background: var(--header-background);
+    height: 60px;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    max-width: 1220px;
+    min-width: 900px;
+    margin: 0 auto;
+}
+
+.menu-btn > svg:hover > path {
+    transition: ease-in-out 0.2s;
+    fill: var(--active-color);
+}
+
+.logo {
+    display: flex;
+}
+
+.user-tools {
+    display: flex;
+    column-gap: 20px;
+}
+
+.menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px);
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.btn:hover {
+    border: 0;
+    transition: ease-in-out 0.3s;
+    background: var(--active-color);
+    cursor: pointer;
+}
+
+.btn-submit {
+    margin-top: 10px;
+    width: 315px;
+    height: 50px;
+}
+
+.input {
+    background: var(--input-background);
+    color: var(--text-color);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+    border: 0;
+    border-radius: 10px;
+    padding: 9px 20px;
+    outline: none;
+    font-size: 16px;
+    font-family: var(--font-family);
+}
+
+.input::placeholder {
+    color: var(--input-placeholder);
+    font-size: 16px;
+    font-family: var(--font-family);
+}
+
+input[type=file] {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.modal-background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.modal-body {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 60px;
+    position: relative;
+}
+
+.modal-btn-close {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.custom-checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    transition: ease-in-out 0.25s;
+}
+
+.switch-label {
+    position: relative;
+}
+
+.switch-body {
+    display: flex;
+    border: 2px solid var(--extra2-color);
+    border-radius: 15px;
+    height: 25px;
+    width: 45px;
+    position: relative;
+    cursor: pointer;
+    transition: ease-in-out .15s;
+}
+
+.switch-body:before {
+    background-color: var(--extra2-color);
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 3px;
+    transition: ease-in-out .25s;
+}
+
+.switch-input:checked + .switch-body {
+    border: 0;
+    background: var(--active-color);
+}
+
+.switch-input:checked + .switch-body:before {
+    background: white;
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+    bottom: 5px;
+}
+
+.back {
+    margin: 30px auto 0;
+    max-width: 1220px;
+}
+
+.back-body {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 32px;
+}
+
+.back-body:hover > svg > path {
+    fill: var(--active-color);
+    transition: ease-in-out 0.1s;
+}
+
+.back-body:hover > p {
+    color: var(--active-color);
+    transition: ease-in-out 0.1s;
+}
+
+.active, .del-chapter-checkbox.active {
+    border: 0;
+    background: var(--active-color);
+    transition: ease-in-out 0.3s;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    background: #4c3885;
+    border: 1px solid var(--extra3-color);
+    height: 55px;
+}
+
+td {
+    border: 1px solid var(--extra2-color);
+    min-height: 55px;
+    text-align: center;
+    padding: 12px 14px;
+}
+
+thead > tr:first-child > th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+thead > tr:first-child > th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+tbody > tr:last-child > td:first-child {
+    border-radius: 0 0 0 10px;
+}
+
+tbody > tr:last-child > td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+.gap-15 {
+    gap: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 13px;
+}
+
+::-webkit-scrollbar-track {
+    background: #454545;
+}
+
+::-webkit-scrollbar-corner {
+    background: #454545;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(30px);
+    border-radius: 5px;
+    height: 180px;
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.pop-up-body {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+    padding: 30px 100px;
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    overflow: hidden;
+    transition: ease-in-out 0.3s;
+    z-index: 2;
+}
+
+.pop-up-body > p {
+    line-height: 162%;
+}
+
+.pop-up-svg {
+    position: absolute;
+    z-index: -1;
+}
+
+.pop-up-body.cookie {
+    width: 800px;
+    height: 120px;
+    gap: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 30px 40px;
+}
+
+.pop-up-svg.cookie {
+    width: 255px;
+    height: 240px;
+}
+
+.cookie-text-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 460px;
+}
+
+.cookie-text-box > p {
+    line-height: 162%;
+}
+
+.btn-cookie {
+    width: 180px;
+    height: 50px;
+}
+
+.btn-cookie:hover {
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.btn-cookie > svg:first-child {
+    position: absolute;
+    bottom: calc(100% - 20px);
+    right: calc(100% - 32px);
+}
+
+.btn-cookie > svg:last-child {
+    position: absolute;
+    top: calc(100% - 20px);
+    left: calc(100% - 32px);
+}
